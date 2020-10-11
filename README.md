@@ -1,26 +1,27 @@
 # FAST API PROJECT
 
-## Table of Contents
+## 📝 Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Running](#running)
 - [Migration](#migration)
+- [Testing](#testing)
 - [Created With](#created)
 
-## About <a name = "about"></a>
+## 🧐 About <a name = "about"></a>
 
 Fast Api Project created to help when starting tu create new project with fast api framework, just clone this repo it will give you
-a new fast api project with sqlalchemy and alembic migration, testing for rest api, and MVC structure.
+a new fast api project with sqlalchemy and alembic migration, client testing for rest api, and MVC structure.
 .
 
-## Getting Started <a name = "getting_started"></a>
+## 🏁 Getting Started <a name = "getting_started"></a>
 
 To get started when u clone this repo, run this pip command
 ### pip install requierments.txt
 it will give you all python package that needed for this project
 
-## Running <a name ="running"/>
+## 🚀 Running <a name ="running"/>
 
 The fast api project running with uvicorn web engine, run this command to run it.
 ### uvicorn app:app 
@@ -28,7 +29,7 @@ The fast api project running with uvicorn web engine, run this command to run it
 and to see all option of uvicorn, use this command
 ### uvicorn --help
 
-## Migration <a name = "migration">
+## ✍️ Migration <a name = "migration">
 
 This project using sqlalchemy for db engine and alembic for migrations tool.
 Alembic will help us when tehere is change on the db models that has been defined,
@@ -40,7 +41,15 @@ To make a new migration, use this command
 And to update the database with the new migration, use this command
 ### alembic upgrade head
 
-## Created With <a name = "created"></a>
+## ⛏️ Testing < a name="testing"/>
+
+Testing is an important thing when create a backend eather for web or rest api. To test a fast api project,
+use the client test from fast api it self. To run the testing, use this command.
+
+### pytest
+it will run all testing scenarion for client that have been created in test package.
+
+## 🎉 Created With <a name = "created"></a>
 
 This project use those python packages bellows:
 - [Fast Api](https://fastapi.tiangolo.com/)
