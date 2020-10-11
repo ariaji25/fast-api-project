@@ -13,7 +13,32 @@
 
 Fast Api Project created to help when starting to create new project with fast api framework, just clone this repo it will give you
 a new fast api project with sqlalchemy and alembic migration, client testing for rest api, and MVC structure.
-.
+
+Project Structure:
+- fast-api-project/
+    |_ app/
+    |    |_ Users/
+    |    |       |_ __init__.py
+    |    |       |_ models.py
+    |    |       |_ schemas.py
+    |    |       |_ views.py
+    |    |       |_ router.py
+    |    |
+    |    |_ __init__.py
+    |    |_ models.py
+    |    |_ response.py
+    |    |_ router.py
+    |    |_ schemas.py
+    |
+    |_ migrations/*
+    |_ test/*
+    |_ alembic.ini
+    |_ config.py
+    |_ database.py
+    |_ main.py
+    |_ test_main.py
+    |_ requierments.txt
+    |_ README.md
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
