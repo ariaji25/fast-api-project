@@ -18,7 +18,7 @@ a new fast api project with sqlalchemy and alembic migration, testing for rest a
 
 To get started when u clone this repo, run this pip command
 ### pip install requierments.txt
-it will give you all python package thah needed for this project
+it will give you all python package that needed for this project
 
 ## Running <a name ="running"/>
 
@@ -43,7 +43,7 @@ And to update the database with the new migration, use this command
 ## Created With <a name = "created"></a>
 
 This project use those python packages bellows:
-- [Fast Api](#https://fastapi.tiangolo.com/)
-- [Uvicorn](#https://www.uvicorn.org)
-- [Sqlalchemy](#https://www.sqlalchemy.org)
-- [Alembic](#https://alembic.sqlalchemy.org)
+- [Fast Api](https://fastapi.tiangolo.com/)
+- [Uvicorn](https://www.uvicorn.org)
+- [Sqlalchemy](https://www.sqlalchemy.org)
+- [Alembic](https://alembic.sqlalchemy.org)
