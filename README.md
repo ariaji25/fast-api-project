@@ -41,7 +41,7 @@ To make a new migration, use this command
 And to update the database with the new migration, use this command
 ### alembic upgrade head
 
-## ⛏️ Testing < a name="testing"/>
+## ⛏️ Testing <a name="testing"/>
 
 Testing is an important thing when create a backend eather for web or rest api. To test a fast api project,
 use the client test from fast api it self. To run the testing, use this command.
