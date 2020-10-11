@@ -15,30 +15,7 @@ Fast Api Project created to help when starting to create new project with fast a
 a new fast api project with sqlalchemy and alembic migration, client testing for rest api, and MVC structure.
 
 Project Structure:
-- fast-api-project/ <br/>
-    |_ app/ <br/>
-    |    |_ Users/ <br/>
-    |    |       |_ __init__.py <br/>
-    |    |       |_ models.py <br/>
-    |    |       |_ schemas.py <br/>
-    |    |       |_ views.py <br/>
-    |    |       |_ router.py <br/>
-    |    |
-    |    |_ __init__.py <br/>
-    |    |_ models.py <br/>
-    |    |_ response.py <br/>
-    |    |_ router.py <br/>
-    |    |_ schemas.py <br/>
-    |
-    |_ migrations/* <br/>
-    |_ test/* <br/>
-    |_ alembic.ini <br/>
-    |_ config.py <br/>
-    |_ database.py <br/>
-    |_ main.py <br/>
-    |_ test_main.py <br/>
-    |_ requierments.txt <br/>
-    |_ README.md <br/>
+![STRUCTURE](structure.PNG)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
