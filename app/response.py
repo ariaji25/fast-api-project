@@ -1,3 +1,7 @@
+"""Extention function for api response.
+"""
+
+
 from fastapi import status, HTTPException, Response
 
 def response(res : Response, data):
@@ -5,7 +9,7 @@ def response(res : Response, data):
     return data
 
 def httpResponse(func, res : Response, *args, **kwargs):
-    """ 
+    """ The args and kwargs params related to function on func variabels params.
         The 'func' parameters is a function with BaseResponse return value or
         Class that extend to BaseModel class from pydantic
     """
@@ -18,4 +22,8 @@ def authorizeHttpResponse(res : Response, authorized, *args, **kwargs):
     if authorized:
         return httpResponse(res, *args, **kwargs)
     else:
-        raise httpResponse(status_code=status.HTTP_401_UNAUTHORIZED, detail="UNAUTHORIZED")
+        raise HTTPException(
+                        status_code=status.HTTP_401_UNAUTHORIZED,
+                        detail="Could not validate credentials",
+                        headers={"WWW-Authenticate": "Bearer"}
+                    )

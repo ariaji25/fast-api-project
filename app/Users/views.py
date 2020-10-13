@@ -1,3 +1,10 @@
+"""Users view controol to serilize the users response endpoint to BaseResponse model.
+
+All transaction from user router endpoint must request to this class.
+
+"""
+
+
 from .models import Users
 from .schemas import UserModel, UserResponse, UsersResponse, ListMeta
 
@@ -8,18 +15,17 @@ class UserViews:
         response.badrequest()
         user = Users.addUser(user)
         if user is None:
-            response.message = "user is exist"
+            response.message = "email is has been used"
             return response
-        response = UserResponse(data=user.toModel())
+        response.data = user
         response.created()
         return response
     
-    def getUsers(self, limit, page):
+    def get(self, limit, page):
         response = UsersResponse()
-        users = Users.getUsers(limit, page)
-        users = [u.toModel() for u in users]
-        response.data = users
-        response.meta.totals = len(users)
+        response.data = Users.getUsers(limit, page)
+        print(response.data)
+        response.meta.totals = len(response.data)
         response.meta.limit = limit
         response.meta.curent_page = page
         response.meta.next_page = page + 1

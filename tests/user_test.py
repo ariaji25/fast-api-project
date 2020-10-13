@@ -1,5 +1,6 @@
-from test import client
 from fastapi import status
+
+from tests import client
 
 def test_user():
     response = client.get("/users")
@@ -11,7 +12,10 @@ def test_post_user():
         "/users/", 
         json={
                 "name": "Abiabi",
-                "email": "abiabi@mail.com"
+                "email": "abiabi@mail.com",
+                "password" : "mypassword",
+                "bussines_name" : "abi cafe",
+                "bussines_type" : "cafe"
                 }
         )
     # print(response.json())
