@@ -1,3 +1,7 @@
+from dotenv import dotenv_values
+
+
 class Config:
-    DB_URL = "postgresql://calonku:bissmillah@localhost/ludes"
+    config = dotenv_values(".env") 
+    DB_URL = config['DB_URL']
     DB_URL_TEST = "sqlite:///db_test.db"

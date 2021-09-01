@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    container_name: ludes-db
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: 'ludes2022'
+      POSTGRES_USER: 'ludes'
+      POSTGRES_DB: 'ludes-db'
+  web:
+    build: .
+    command:
+      - /bin/bash
+      - -c
+      - |
+        alembic stamp head
+        alembic revision --autogenerate
+        alembic upgrade head
+        uvicorn app:app --port 8000 --host '0.0.0.0'
+    volumes:
+      - .:/ludes-be
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
