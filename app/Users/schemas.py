@@ -7,11 +7,13 @@ Base on BaseModel from pydantic and typing
 from typing import List, Optional
 from datetime import datetime
 
+from pydantic.types import UUID4
+
 
 from app.schemas import BaseModel, BaseResponse, ListMeta, Field
 
 class UserModel(BaseModel):
-    id : Optional[int] = 0
+    id : Optional[UUID4] = ""
     name : str = Field(min_length=3)
     email : str = Field(min_length=6) 
     password : str = Field(min_length=6)

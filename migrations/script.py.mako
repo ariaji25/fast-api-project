@@ -6,6 +6,7 @@ Create Date: ${create_date}
 
 """
 from alembic import op
+import fastapi_utils.guid_type 
 import sqlalchemy as sa
 ${imports if imports else ""}
 

@@ -21,7 +21,13 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+
 from config import Config
+try:
+    if os.environ["TEST_MODE"] == "True" :
+        Config.DB_URL = Config.DB_URL_TEST
+except:
+    print('No test runing')
 from database import Base, create_engine
 from app import models
 

@@ -22,13 +22,16 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
 
-class AuthToken(Base):
-    __tablename__ = "auth_token"
-    id = sql.Column(sql.Integer, primary_key=True, index=True)
-    token = sql.Column(sql.String)
-    user_id = sql.Column(sql.Integer, sql.ForeignKey(Users.id))
-    expired_at = sql.Column(sql.DateTime)
-    user = relationship('Users', back_populates="token")
+class AuthToken:
+    
+    token = ""
+    user_id = ""
+    expired_at : datetime = datetime.now
+
+    def __init__(self,token, user_id, expired_at):
+        self.token = token
+        self.user_id = user_id
+        self.expired_at = expired_at
 
     def __repr__(self):
         return "<TOken :{}>".format(self.id)
@@ -47,10 +50,8 @@ class AuthToken(Base):
         auth_token = AuthToken(
                         token=token,
                         user_id=user.id,
-                        expired_at=expired_at
+                        expired_at= expired_at
                      )
-        session.add(auth_token)
-        session.commit()
         return auth_token
     
     @staticmethod
