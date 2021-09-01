@@ -67,16 +67,21 @@ class Users(Base):
                 bussines_name="Ludes",
                 bussines_type="Parent",
                 role="ludes.superadmin",
+                is_super=True,
+                is_active=True,
                 created_at=datetime.now(),
                 updated_at=datetime.now()
             )
             session.add(superAdmin)
             session.commit()
-            session.rollback()
+            session.close()
 
     @staticmethod
     def exist(*args, **kwargs):
-        return session.query(Users).filter(*args, **kwargs).first()
+        session.rollback()
+        user : Users = session.query(Users).filter(*args, **kwargs).first()
+        session.close()
+        return user
 
     @staticmethod
     def get_hash_password(password: str) -> str:
@@ -100,14 +105,19 @@ class Users(Base):
 
     @staticmethod
     def addUser(user: UserModel):
+        session.rollback()
         user_exist = Users.exist(Users.email == user.email)
         if user_exist is not None:
             return None
         user_created = Users.fromModel(user)
         session.add(user_created)
         session.commit()
+        session.close()
         return user_created
 
     @staticmethod
     def getUsers(limit, page):
-        return session.query(Users).limit(limit).offset(limit*page).all()
+        session.rollback()
+        users = session.query(Users).limit(limit).offset(limit*page).all()
+        session.close()
+        return users

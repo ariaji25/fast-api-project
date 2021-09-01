@@ -5,15 +5,17 @@ another view controll, this extention is easly to call.
 
 """
 
+from app.Users.models import EnumRole
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
+from sqlalchemy.sql.sqltypes import Enum
 
 from .models import AuthToken, Users
 from .schemas import TokenData
 
 
 # o2auth scheme, defined the o2auth url
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 
 # credential response exception when token is unauthorized
 credentials_exception = HTTPException(
@@ -43,7 +45,8 @@ def get_superadmin(token : str = Depends(oauth2_scheme)):
         except Exception as e:
             raise credentials_exception
         user:Users= Users.exist(Users.email==token_data.username)
-        if user.role == 'ludes.superadmin' :
+        print("User authenticate", user)
+        if user.role == EnumRole.SUPER_ADMIN:
             return user
         else:
             raise credentials_exception

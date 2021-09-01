@@ -33,9 +33,6 @@ class AuthToken:
         self.user_id = user_id
         self.expired_at = expired_at
 
-    def __repr__(self):
-        return "<TOken :{}>".format(self.id)
-    
     @staticmethod
     def create_token(data : dict):
         to_encode = data.copy()

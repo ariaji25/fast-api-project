@@ -56,7 +56,7 @@ class AuthViews:
         raise self.unauthorize_excepion
 
     def get_current_active_super_admin(self, current_admin: UserModel = Depends(get_current_user)):
-        if current_admin.is_active and current_admin.role == EnumRole.SUPER_ADMIN:
+        if current_admin.is_active and current_admin.is_super and current_admin.role == EnumRole.SUPER_ADMIN:
             return current_admin
         raise self.unauthorize_excepion
 
